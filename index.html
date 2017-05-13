@@ -1,0 +1,45 @@
+<!DOCTYPE html>	  
+<html>  
+<body> 
+ECHO is off.
+<br> 
+<div id="DivCurTime"></div> 
+<br> 
+<button onclick="getCurTime()" type="button">Get current time position</button>  
+<button onclick="setCurTime(0)" type="button">00</button><br>   
+<button onclick="moveMS(-0.05)" type="button">Time-50ms</button>  
+<button onclick="moveMS(-0.01)" type="button">-10ms</button>  
+<button onclick="moveMS(0.01)" type="button">+10ms</button>  
+<button onclick="moveMS(0.05)" type="button">+50ms</button>  
+<button onclick="setCurTime(5)" type="button">Set time position to 5 seconds</button><br>   
+<button onclick="play('PIC_20160521_164753_BA5.mp4')">1:PIC_20160521_164753_BA5.mp4</button> 
+<button onclick="play('PIC_20160521_164823_179.mp4')">2:PIC_20160521_164823_179.mp4</button> 
+<button onclick="play('PIC_20160521_164830_8AD.mp4')">3:PIC_20160521_164830_8AD.mp4</button> 
+<button onclick="play('PIC_20160521_164854_E55.mp4')">4:PIC_20160521_164854_E55.mp4</button> 
+<button onclick="play('PIC_20160521_164913_055.mp4')">5:PIC_20160521_164913_055.mp4</button> 
+<button onclick="play('PIC_20160521_164944_9D3.mp4')">6:PIC_20160521_164944_9D3.mp4</button> 
+<br> 
+<video id="myVideo" width="720" height="480" controls> 
+ <source src="0.mp4" type="video/mp4">  
+Your browser does not support HTML5 video. 
+</video>  
+<script>  
+var vid = document.getElementById("myVideo"); 
+function play(i) {
+    vid.src=i; 
+    vid.load();
+    vid.play(); 
+}
+function getCurTime() {  
+   document.getElementById("DivCurTime").innerHTML= vid.currentTime; 
+}   
+function setCurTime(t) { 
+   vid.currentTime=t;  
+   getCurTime();
+}  
+function moveMS(ms) { 
+  vid.currentTime+=ms;
+  getCurTime();  
+}   
+</script> 
+</body> 
